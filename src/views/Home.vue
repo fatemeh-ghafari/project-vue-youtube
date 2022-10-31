@@ -1,13 +1,17 @@
 <template>
-  <h1>HomeVue</h1>
+  <Navbar/>
 </template>
 
 <script>
+import Navbar from '../components/Navbar'
 export default {
+  name: 'Home',
+  data: () => ({
+
+  }),
+  components: {
+      Navbar,
+    },
 
 }
 </script>
-
-<style>
-
-</style>

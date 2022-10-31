@@ -1,13 +1,9 @@
 <template>
-<div id="app">
-  <h1>Text((: !</h1>
-  <p>
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/videoPlay">Go to Video play</router-link>
-  </p>
- 
-  <router-view></router-view>
-</div>
+  <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
