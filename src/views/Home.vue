@@ -1,5 +1,8 @@
 <template>
+  <div>
   <Navbar/>
+      <h3 class="headline font-weight-medium mb-2">Recommended</h3>
+</div>
 </template>
 
 <script>
