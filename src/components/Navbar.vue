@@ -1,10 +1,10 @@
- <template>
+<template>
   <nav id="navbar">
     <v-app-bar flat app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title  class=" mt-5">
+      <v-toolbar-title  class=" mt-3">
         <img style="width:50px;" src="../assets/icon_youtube.png">
-       <v-btn text plain class="mb-10 font-weight-black " to="/">YouTube</v-btn>
+       <v-btn text plain class="mb-3 font-weight-bold" to="/">YouTube</v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
@@ -44,8 +44,8 @@
             <v-list-item-icon class="mr-3"
               ><v-icon>mdi-play-box-outline</v-icon></v-list-item-icon
             >
-            <v-list-item-title>UploadVideo</v-list-item-title>
-          </v-list-item>
+            <v-list-item-title> Upload </v-list-item-title>
+          </v-list-item> 
           <v-list-item>
             <v-list-item-icon class="mr-3"
               ><v-icon>mdi-access-point</v-icon></v-list-item-icon
@@ -54,10 +54,12 @@
           </v-list-item>
         </v-list>
       </v-menu>
+
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on"> <v-icon size="25">mdi-apps</v-icon></v-btn>
         </template>
+        <span>YouTube</span>
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -67,15 +69,17 @@
         </template>
         <span>Notifications</span>
       </v-tooltip>
+
+      <AccountList />
     </v-app-bar>
-    <!----------------- navbar------------------>
+
     <v-navigation-drawer
       v-model="drawer"
       app
       :clipped="$route.name !== 'Watch'"
       :temporary="$route.name === 'Watch'"
       id="nav"
-    > 
+    >
       <div tag="div" class="v-navigation-drawer__content" >
         <v-list dense nav class="py-0" tag="div">
           <v-list-item
@@ -87,7 +91,7 @@
               @click="drawer = !drawer"
               class="mr-5"
             ></v-app-bar-nav-icon>
-            <v-toolbar-title class="font-weight-bold">youtube</v-toolbar-title>
+            <v-toolbar-title class="font-weight-bold">YouTube</v-toolbar-title>
           </v-list-item>
           <v-divider class="hidden-lg-and-up"></v-divider>
           <div v-for="parentItem in items" :key="parentItem.header">
@@ -100,12 +104,14 @@
               v-for="item in parentItem.pages"
               :key="item.title"
               link
-              
+              class="mb-0" 
+              :to="item.link" 
+              exact
+              active-class="active-item"
             >
               <v-list-item-icon v-if="parentItem.header !== 'Subscriptions'" >
                 <v-icon>{{ item.icon }}</v-icon>
               </v-list-item-icon>
-              
               <v-list-item-avatar v-else class="mr-5">
                 <img
                   :src="item.img"
@@ -140,8 +146,10 @@
 <script>
 import AccountList from '@/components/AccountList'
 import UploadVideo from '@/components/UploadVideo'
+import sub1 from '../assets/b1.png';
+import sub2 from '../assets/b2.png';
+import sub3 from '../assets/b3.png';
 export default {
-
   data: () => ({
     drawer: false,
     items: [
@@ -191,26 +199,34 @@ export default {
       },
       {
         header: 'Subscriptions',
-      },
-      {
         pages: [
           {
-            title: 'News',
-            link: '#',
-            icon: 'mdi-text'
+            title: 'cook food',
+            link: "/videoPlay",
+            icon: 'mdi-badge-account',
+            img: sub1
           },
           {
-            title: 'Gaming',
-            link: '#',
-            icon: 'mdi-youtube-gaming'
+            title: 'fast food',
+            link: "/videoPlay",
+            icon: 'mdi-badge-account',
+            img: sub2
           },
           {
-            title: 'Live',
-            link: '#',
-            icon: 'mdi-access-point'
+            title: 'Sib',
+            link: "/videoPlay",
+            icon: 'mdi-badge-account',
+            img: sub1
+          },
+          {
+            title: 'Food',
+            link: "/videoPlay",
+            icon: 'mdi-badge-account',
+            img: sub3
           }
         ]
       },
+      
       {
         header: null,
         pages: [
@@ -269,14 +285,16 @@ export default {
     this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true
     this.drawer = this.$route.name === 'Watch' ? false : this.drawer
   }
-  
 }
 </script>
 
 <style lang="scss">
 #navbar {
- 
- 
+  .active-item {
+    .v-list-item__icon {
+      color: red !important;
+    }
+  }
   .v-navigation-drawer__border {
     width: 0 !important;
   }

@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import VideoPlay from '../components/VideoPlay'
-import History from '../components/History'
 import Channel from '../components/Channel'
-//import About from '.../views/About.vue'
+import videoPlay from '../components/VideoPlay'
+import History from '../components/History'
 
 Vue.use(VueRouter)
 
@@ -14,31 +13,32 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {path : '/VideoPlay' ,
-  name:'VideoPlay',
-  component : VideoPlay
- },
-{
-    path:'/Channel',
+  {
+    path: '/videoPlay',
+    name: 'videoPlay',
+    component: videoPlay
+  },
+  {
+    path: '/channel',
     name: 'Channel',
-    component :Channel
-},
-{
-    path:'/History',
+    component: Channel
+  },
+  {
+    path: '/history',
     name: 'History',
-    component :History
-},
-// {
-//     path: '/about',
-//     name: 'About',
-//     component :About
-   
-//   }
+    component: History
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import( '../views/About.vue')
+  }
 ]
+
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-  })
-  
-  export default router
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+
+export default router

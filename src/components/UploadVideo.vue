@@ -1,5 +1,5 @@
 <template>
-    <h1>Text</h1>
+    <h1>Upoad Video </h1>
   </template>
   
   <script>
