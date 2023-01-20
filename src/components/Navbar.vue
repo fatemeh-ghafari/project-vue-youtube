@@ -8,15 +8,11 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
-        flat
-        hide-details
+      v-model="search"
         append-icon="mdi-magnify"
-        placeholder="Search"
-        outlined
-        dense
-        v-model="searchText"
-        @click:append="search"
-        class="hidden-sm-and-down"
+        label="Search"
+        single-line
+        hide-details
       ></v-text-field>
       <v-tooltip bottom>
             <template v-slot:activator="{ on: tooltip }">
@@ -273,13 +269,7 @@ export default {
       UploadVideo
     },
   methods: {
-    search() {
-      if (!this.searchText) return
-      this.$router.push({
-        name: 'Search',
-        query: { 'search-query': this.searchText }
-      })
-    }
+    
   },
   mounted() {
     this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true

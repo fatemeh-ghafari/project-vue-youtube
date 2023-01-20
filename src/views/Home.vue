@@ -9,7 +9,7 @@
             sm="6"
             md="4"
             lg="3"
-            v-for="i in loading ? 4 : 6"
+            v-for="i in loading ? 6 : 9"
             :key="i"
             class="mx-xs-auto"
           >

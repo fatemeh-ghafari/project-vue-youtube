@@ -116,7 +116,7 @@ export default {
   data: () => ({
     tab: 0,
     loading: true,
-    items: ['Home', 'Videos', 'Playlists', 'Community', 'Channels', 'about'],
+    items: ['Home', 'Videos', 'Playlists'],
     video: {
       id: 1,
       title: "Pizza ",

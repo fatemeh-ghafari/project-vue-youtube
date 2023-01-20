@@ -13,7 +13,7 @@
                   large
                 >
                   <v-responsive>
-                    <iframe width="1000" height="400" :src="this.activeVideo.thumbnail"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="1000" height="400" :src="this.activeVideo.th"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   </v-responsive>
                   <v-card flat class="transparent">
                     <v-card-title class="pl-0 pb-0">
@@ -280,12 +280,13 @@
   <script>
   import Navbar from '@/components/Navbar'
   import p1 from '../assets/p1.jpg';
-  
+  import p from '../assets/pizza.gif';
   let videos = [
     {
       id: 1,
       title: "Pizza ",
       thumbnail:p1,
+      th:p,
       youtubeURL: "https://www.youtube.com/",
       creator: "FastFood",
       likes: 0,
@@ -299,6 +300,7 @@
       id: 2,
       title: "Pizza ",
       thumbnail:p1,
+      th:p,
       youtubeURL: "https://www.youtube.com/",
       creator: "FastFood",
       likes: 0,
@@ -312,6 +314,7 @@
       id: 3,
       title: "Pizza ",
       thumbnail:p1,
+      th:p,
       youtubeURL: "https://www.youtube.com/",
       creator: "FastFood",
       likes: 0,
@@ -325,6 +328,7 @@
       id: 4,
       title: "Pizza ",
       thumbnail:p1,
+      th:p,
       youtubeURL: "https://www.youtube.com/",
       creator: "FastFood",
       likes: 0,
@@ -351,7 +355,7 @@
           comment: '',
           showCommentBtns: false,
           repliesInput: {},
-          chips: ['All', 'Music', 'Live', 'Movies', 'Coding', 'VueJs'],
+          chips: ['All', 'Music', 'Live', 'Movies', ],
       }
     },
     methods:{

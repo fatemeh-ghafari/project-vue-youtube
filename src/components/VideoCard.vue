@@ -18,7 +18,6 @@
         <v-card-title class="pl-2 pt-3 subtitle-1 font-weight-bold">
           {{ video.title }}
         </v-card-title>
-
         <v-card-subtitle class="pl-2 pb-0">
           {{ channel.name }}
         </v-card-subtitle>
